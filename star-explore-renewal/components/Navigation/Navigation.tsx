@@ -48,23 +48,23 @@ const keyword_list_3 = [
 
 export default function Navigation() {
   return (
-    <nav className=" bg-space-black/60 border-2 border-star-blue rounded-3xl w-72 h-full p-4 pr-2 z-10">
-      <div className="h-10 flex justify-between items-start pr-2">
-        <h1 className="font-avant text-3xl uppercase font-medium text-star-blue">
+    <nav className="bg-space-black/60 border-2 border-star-blue rounded-3xl w-72 h-full p-6 pt-4 pr-1 z-10">
+      <div className="h-10 flex justify-between items-center pr-5">
+        <h1 className="pt-2 font-avant text-3xl uppercase font-medium text-star-blue">
           keyword
         </h1>
         <div className="inline-flex">
-          <button className="w-6 h-6 mr-2 bg-space-black/50 rounded-full border border-star-blue hover:bg-star-blue"></button>
-          <button className="w-6 h-6 bg-space-black/50 rounded-full border border-star-blue hover:bg-star-blue"></button>
+          <button className="w-6 h-6 mr-2.5 bg-star-blue rounded-full border border-star-blue hover:bg-star-blue"></button>
+          <button className="w-6 h-6 bg-space-black rounded-full border border-star-blue hover:bg-star-blue"></button>
         </div>
       </div>
       <div className="p-2 h-[calc(100%-80px)]">
         <div className="relative h-10 pb-2 text-right">
-          <button className="absolute bottom-2 right-0 w-6 h-6">
+          <button className="absolute bottom-2 right-6 w-6 h-6">
             <Image src={reset} alt="refresh button" />
           </button>
         </div>
-        <div className="h-full overflow-y-scroll overflow-x-hidden pr-2">
+        <div className="h-full overflow-y-scroll overflow-x-hidden pr-5">
           <div className="">
             <KeywordList category="emotion" keywordList={keyword_list_1} />
             <KeywordList category="theme" keywordList={keyword_list_2} />

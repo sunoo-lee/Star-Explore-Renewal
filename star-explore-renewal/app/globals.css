@@ -11,7 +11,8 @@
   border-radius: 30px;
 }
 ::-webkit-scrollbar-track {
-  background: url("/asset/scroll-track.png");
+  /* background: url("/asset/scroll-track.png"); */
+  /* background: #407ed9; */
   background-position: center;
 }
 * {
@@ -22,11 +23,67 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --star_0: 5px;
+  --star_1: 7px;
+  --star_2: 9px;
+  --star_3: 15px;
+  --star_4: 25px;
+  --star_5: 36px;
+  --star_blackhole: 200px;
+  --star_event: 60px;
+  --star_comet: 100px;
+  --star_cloud: 100px;
+  --star_seasonal: 30px;
 }
 
 body {
   font-family: "Noto Sans KR", sans-serif;
+}
+
+div.img_0 {
+  width: var(--star_0);
+  height: var(--star_0);
+}
+div.img_1 {
+  width: var(--star_1);
+  height: var(--star_1);
+}
+div.img_2 {
+  width: var(--star_2);
+  height: var(--star_2);
+}
+div.img_3 {
+  width: var(--star_3);
+  height: var(--star_3);
+}
+div.img_4 {
+  width: var(--star_4);
+  height: var(--star_4);
+}
+div.img_5 {
+  width: var(--star_5);
+  height: var(--star_5);
+}
+div.img_black {
+  width: var(--star_blackhole);
+  height: var(--star_blackhole);
+  margin: 25px;
+}
+div.img_event {
+  width: var(--star_event);
+  height: var(--star_event);
+  background-size: 200px 200px;
+  background-position: center;
+}
+div.img_comet1 {
+  width: var(--star_comet);
+  height: var(--star_comet);
+}
+div.img_comet2 {
+  width: var(--star_cloud);
+  height: var(--star_comet);
+}
+div.img_cloud {
+  width: var(--star_cloud);
+  height: var(--star_cloud);
 }

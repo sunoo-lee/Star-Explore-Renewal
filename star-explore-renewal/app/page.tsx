@@ -11,10 +11,12 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    console.log(song_keywords);
+    // console.log(song_graphic);
+    console.log(song_infomation);
+    // console.log(song_keywords);
   }, []);
   return (
-    <main className="bg-space-black/50 h-screen p-14 flex min-h-screen flex-row justify-between  ">
+    <main className="bg-space-black h-screen p-14 flex min-h-screen flex-row justify-between  ">
       <Space />
       <Navigation />
       <Result />

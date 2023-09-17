@@ -3,7 +3,7 @@ import Keyword from "./KeywordValidator";
 
 export default function KeywordList({ category, keywordList }: any) {
   return (
-    <div className="pt-1 w-full flex flex-col justify-center border-t-2 border-star-blue">
+    <div className="py-2 w-full flex flex-col justify-center border-t border-star-blue">
       <div>
         <span className="font-avant font-thin uppercase text-xl text-star-blue">
           {category}
