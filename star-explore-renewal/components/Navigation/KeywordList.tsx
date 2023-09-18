@@ -9,9 +9,9 @@ export default function KeywordList({ category, keywordList }: any) {
           {category}
         </span>
       </div>
-      <div className="font-noto mx-auto my-4 grid grid-cols-2 gap-2 font-medium">
+      <div className="mx-auto my-4 grid grid-cols-2 gap-2">
         {keywordList.map((item: Keyword, i: number) => (
-          <Button key={i}>{item.data}</Button>
+          <Button key={i} data={item.data} />
         ))}
       </div>
     </div>

@@ -1,37 +1,55 @@
+"use client";
+
+import keywordStore from "@/store/keywordStore";
+import { useEffect, useState } from "react";
+import song_keywords from "../../asset/song_keywords.json";
 import ResultItem from "./ResultItem";
 
-const DUMMY_RESULT = [
-  "오르트구름",
-  "살별",
-  "물의 여행",
-  "반짝, 빛을 내",
-  "6년 230일",
-  "P.R.R.W",
-  "나는 계획이 있다",
-  "Truly",
-  "별의 조각",
-  "하나의 달",
-  "사건의 지평선",
-  "Black hole",
-  "Savior",
-  "잘 지내",
-];
-
 export default function Result() {
+  const keywordList = keywordStore((state) => state.keywordList);
+  const [resultList, setResultList] = useState(song_keywords);
+
+  useEffect(() => {
+    const resultSong = song_keywords.filter((item) => {
+      const values = Object.values(item);
+      for (let currentKeyword of keywordList) {
+        if (!values.includes(currentKeyword)) {
+          return;
+        }
+      }
+      return item.song_title;
+    });
+    setResultList(resultSong);
+  }, [keywordList]);
+
   return (
-    <div className="font-avant w-64 min-h-0 h-96 bg-star-blue/60 rounded-3xl z-10">
-      <div className="text-center pt-2 text-2xl font-medium border-2 border-star-blue rounded-full text-space-black bg-star-blue  uppercase">
+    <div className="font-avant w-64 min-h-0 h-min bg-star-blue/60 rounded-3xl z-10">
+      <div
+        className={
+          (resultList.length === 270
+            ? "text-star-blue bg-space-black "
+            : "text-space-black bg-star-blue ") +
+          "text-center pt-2 text-2xl font-medium border-2 border-star-blue rounded-full uppercase"
+        }
+      >
         <span>result: </span>
-        <span>000</span>
+        <span>{resultList.length}</span>
       </div>
-      <div className="h-[calc(100%-50px)] p-6 pl-8 pr-4">
-        <div className="h-full overflow-y-scroll overflow-x-hidden ">
-          <ul>
-            {DUMMY_RESULT.map((item, i) => (
-              <ResultItem key={i} title={item} />
-            ))}
-          </ul>
-        </div>
+      <div
+        className={
+          (resultList.length === 270 ? "h-0" : "overflow-hidden") +
+          " pl-8 pr-4 duration-300"
+        }
+      >
+        {resultList.length < 270 && resultList.length > 0 && (
+          <div className="max-h-96 overflow-y-scroll overflow-x-hidden my-4">
+            <ul className="mr-4 break-keep">
+              {resultList.map((item, i) => (
+                <ResultItem key={i} title={item.song_title} />
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
