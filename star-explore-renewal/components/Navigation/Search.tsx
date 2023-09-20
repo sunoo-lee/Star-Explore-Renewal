@@ -34,15 +34,11 @@ export default function Search() {
     setSearchResult(resultList);
   }, [value]);
 
-  useEffect(() => {
-    console.log(searchResult);
-  }, [searchResult]);
-
   return (
-    <div className="font-noto text-white bg-star-blue mr-5 mt-10 rounded-2xl overflow-hidden ">
-      <div className="bg-space-black p-1 pl-4 pr-2 flex justify-between items-center border-2 border-star-blue rounded-2xl overflow-hidden ">
+    <div className="mt-10 mr-5 overflow-hidden text-white font-noto bg-star-blue rounded-2xl ">
+      <div className="flex items-center justify-between p-1 pl-4 pr-2 overflow-hidden border-2 bg-space-black border-star-blue rounded-2xl ">
         <input
-          className="min-w-0 w-full text-xl font-medium text-star-blue bg-space-black  outline-none"
+          className="w-full min-w-0 text-xl font-medium outline-none text-star-blue bg-space-black"
           type="text"
           value={value}
           onChange={onInputChangeHandler}
@@ -52,7 +48,7 @@ export default function Search() {
         </div>
       </div>
       {searchResult.length < 270 && searchResult.length > 0 && (
-        <div className="max-h-96 my-2 h-min overflow-y-scroll">
+        <div className="my-2 overflow-y-scroll max-h-96 h-min break-keep">
           <ul>
             {searchResult.map((item, i) => (
               <SearchItem key={i} title={item.song_title} />

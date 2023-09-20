@@ -23,7 +23,7 @@ export default function Player() {
   return (
     <div className={isToggled ? toggleTrueClass : toggleFalseClass}>
       {!isToggled && (
-        <div className="overflow-hidden inline-flex justify-center items-center mr-6 w-80 h-44 border-2 border-star-blue rounded-2xl bg-white">
+        <div className="inline-flex items-center justify-center mr-6 overflow-hidden bg-white border-2 w-80 h-44 border-star-blue rounded-2xl">
           <iframe
             width="320"
             height="180"
@@ -32,18 +32,18 @@ export default function Player() {
           ></iframe>
         </div>
       )}
-      <div className="h-full font-noto flex flex-col justify-between text-center text-star-blue">
+      <div className="flex flex-col justify-between h-full text-center font-noto text-star-blue">
         <div className="flex flex-col justify-between h-full">
           <h1
             className={
-              "max-w-[330px] break-words " +
+              "max-w-[330px] break-words font-medium " +
               (currentSong.song_title.length > 17 ? " text-lg" : "text-2xl")
             }
           >
             {currentSong.song_title}
           </h1>
           {!isToggled && (
-            <div className="text-sm mb-3">
+            <div className="mb-3 text-sm">
               <div>
                 <span>{currentSong.album_title} </span>
               </div>

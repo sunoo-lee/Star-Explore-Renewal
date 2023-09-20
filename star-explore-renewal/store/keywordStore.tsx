@@ -6,11 +6,16 @@ import song_keywords from "../asset/song_keywords.json";
 interface KeywordStore {
   keywordList: string[];
   currentSong: SongData;
+  spacePosition: any;
+  playerState: boolean;
+  isSearchMode: boolean;
   selectKeyword: (keyword: string) => void;
   deleteKeyword: (keyword: string) => void;
   setCurrentSong: (data: SongData) => void;
   resetKeyword: () => void;
   selectResult: (title: string) => void;
+  resetSpacePosition: () => void;
+  setSearchMode: () => void;
 }
 
 interface SongData {
@@ -32,6 +37,9 @@ const keywordStore = create<KeywordStore>((set) => ({
     song_title: "곡을 선택해주세요.",
     keywords: ["-", "-", "-", "-", "-", "-"],
   },
+  spacePosition: {},
+  playerState: false,
+  isSearchMode: false,
   selectKeyword: (keyword: string) => {
     set((state) => ({ keywordList: [...state.keywordList, keyword] }));
   },
@@ -45,9 +53,11 @@ const keywordStore = create<KeywordStore>((set) => ({
   },
   resetKeyword: () => {
     set((state) => ({ keywordList: [] }));
+    set((state) => ({ spacePosition: {} }));
   },
   selectResult: (title: string) => {
     const info: any = song_infomation.find((item) => item.song_title === title);
+    const pos: any = song_graphic.find((item) => item.song_title === title);
     const targetSong: any = song_keywords.find(
       (item) => item.song_title === title
     );
@@ -59,6 +69,15 @@ const keywordStore = create<KeywordStore>((set) => ({
       )
     ) as string[];
 
+    const widthOffset = 1000 - pos.x;
+    const heightOffset = 1000 - pos.y;
+
+    const posData = {
+      transform: `translate(${widthOffset * 1.5}px, ${
+        heightOffset * 1.5
+      }px) scale(1.5)`,
+    };
+
     const data: SongData = {
       album_title: info.album_title,
       embedcode: info.embedcode,
@@ -68,6 +87,14 @@ const keywordStore = create<KeywordStore>((set) => ({
       keywords,
     };
     set((state) => ({ currentSong: data }));
+    set((state) => ({ spacePosition: posData }));
+    set((state) => ({ playerState: true }));
+  },
+  resetSpacePosition: () => {
+    set((state) => ({ spacePosition: {} }));
+  },
+  setSearchMode: () => {
+    set((state) => ({ isSearchMode: !state.isSearchMode }));
   },
 }));
 

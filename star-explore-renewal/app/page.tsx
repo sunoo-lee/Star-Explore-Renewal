@@ -6,30 +6,23 @@ import Result from "@/components/Result/Result";
 import Space from "@/components/Space/Space";
 import Button from "@/components/UI/Button";
 import keywordStore from "@/store/keywordStore";
-import { useEffect } from "react";
-
-import song_graphic from "../asset/song_graphic.json";
-import song_infomation from "../asset/song_infomation.json";
-import song_keywords from "../asset/song_keywords.json";
 
 export default function Home() {
   const keywordList = keywordStore((state) => state.keywordList);
-  useEffect(() => {
-    // console.log(song_graphic);
-    // console.log(song_infomation);
-    // console.log(song_keywords);
-  }, []);
+  const playerState = keywordStore((state) => state.playerState);
+
   return (
-    <main className="select-none bg-space-black/30 h-screen p-14 flex min-h-screen flex-row justify-between  ">
+    <main className="flex flex-row justify-between h-screen min-h-screen overflow-hidden select-none bg-space-black p-14 ">
       <Space />
       <Navigation />
-      <div className="h-min z-20 text-white flex gap-2">
+      <div className="z-20 flex gap-2 text-white h-min">
         {keywordList.map((item, i) => (
           <Button key={i} data={item} />
         ))}
       </div>
       <Result />
-      <Player />
+      {playerState && <Player />}
+      {/* <div className="fixed w-4 h-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-400/50 top-1/2 left-1/2"></div> */}
     </main>
   );
 }

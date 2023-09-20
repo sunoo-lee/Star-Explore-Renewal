@@ -30,7 +30,9 @@
   --star_4: 25px;
   --star_5: 36px;
   --star_blackhole: 200px;
+  /* --star_blackhole: 210px; */
   --star_event: 60px;
+  /* --star_event: 200px; */
   --star_comet: 100px;
   --star_cloud: 100px;
   --star_seasonal: 30px;
@@ -40,50 +42,85 @@ body {
   font-family: "Noto Sans KR", sans-serif;
 }
 
-div.img_0 {
+div#star.img_0 {
   width: var(--star_0);
   height: var(--star_0);
 }
-div.img_1 {
+div#star.img_1 {
   width: var(--star_1);
   height: var(--star_1);
 }
-div.img_2 {
+div#star.img_2 {
   width: var(--star_2);
   height: var(--star_2);
 }
-div.img_3 {
+div#star.img_3 {
   width: var(--star_3);
   height: var(--star_3);
 }
-div.img_4 {
+div#star.img_4 {
   width: var(--star_4);
   height: var(--star_4);
 }
-div.img_5 {
+div#star.img_5 {
   width: var(--star_5);
   height: var(--star_5);
 }
-div.img_black {
+div#star.img_black {
   width: var(--star_blackhole);
   height: var(--star_blackhole);
-  margin: 25px;
 }
-div.img_event {
+div#star.img_event {
   width: var(--star_event);
   height: var(--star_event);
-  background-size: 200px 200px;
-  background-position: center;
+  overflow: hidden;
 }
-div.img_comet1 {
+div#star.img_event img {
+  transform: scale(3.3);
+}
+div#star.img_comet1 {
   width: var(--star_comet);
   height: var(--star_comet);
 }
-div.img_comet2 {
+div#star.img_comet2 {
   width: var(--star_cloud);
   height: var(--star_comet);
 }
-div.img_cloud {
+div#star.img_cloud {
   width: var(--star_cloud);
   height: var(--star_cloud);
+}
+
+div#info.img_0 {
+  transform: translateX(calc(-50%)) translateY(-85px);
+}
+div#info.img_1 {
+  transform: translateX(calc(-50%)) translateY(-86px);
+}
+div#info.img_2 {
+  transform: translateX(calc(-50%)) translateY(-87px);
+}
+div#info.img_3 {
+  transform: translateX(calc(-50%)) translateY(-89px);
+}
+div#info.img_4 {
+  transform: translateX(calc(-50%)) translateY(-89px);
+}
+div#info.img_5 {
+  transform: translateX(calc(-50%)) translateY(-89px);
+}
+div#info.img_black {
+  transform: translateX(calc(-50%)) translateY(-130px);
+}
+div#info.img_event {
+  transform: translateX(calc(-50%)) translateY(-106px);
+}
+div#info.img_comet1 {
+  transform: translateX(calc(-50%)) translateY(-94px);
+}
+div#info.img_comet2 {
+  transform: translateX(calc(-50%)) translateY(-94px);
+}
+div#info.img_cloud {
+  transform: translateX(calc(-50%)) translateY(-130px);
 }
