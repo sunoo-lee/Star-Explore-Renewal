@@ -7,16 +7,16 @@ export default function Keyword() {
   const resetKeyword = keywordStore((state) => state.resetKeyword);
 
   return (
-    <div className="p-2 h-full">
-      <div className="relative h-10 pb-2 text-right">
+    <div className="relative h-full p-2 md:static">
+      <div className="absolute h-8 text-right -top-8 right-10 md:top-0 md:right-0 md:static">
         <button
           onClick={resetKeyword}
-          className="absolute bottom-2 right-6 w-6 h-6"
+          className="w-6 h-6 md:relative md:bottom-0 md:right-6"
         >
           <Image src={reset} alt="refresh button" />
         </button>
       </div>
-      <div className="max-h-[720px]  overflow-y-scroll overflow-x-hidden pr-5">
+      <div className="max-h-[calc(100%-200px)] md:max-h-[calc(100vh-240px)] pr-5 overflow-x-hidden overflow-y-scroll">
         <div>
           <KeywordList category="emotion" keywordList={keyword_list_1} />
           <KeywordList category="theme" keywordList={keyword_list_2} />

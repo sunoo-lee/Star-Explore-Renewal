@@ -3,13 +3,13 @@ import Keyword from "./KeywordValidator";
 
 export default function KeywordList({ category, keywordList }: any) {
   return (
-    <div className="py-2 w-full flex flex-col justify-center border-t border-star-blue">
+    <div className="flex flex-col justify-center w-full py-2 border-t border-star-blue last:pb-0">
       <div>
-        <span className="font-avant font-thin uppercase text-xl text-star-blue">
+        <span className="text-xl font-thin uppercase font-avant text-star-blue">
           {category}
         </span>
       </div>
-      <div className="mx-auto my-4 grid grid-cols-2 gap-2">
+      <div className="flex flex-wrap justify-center mx-auto my-4 gap-x-1 gap-y-2 md:gap-x-2 md:gap-y-3 md:grid md:grid-cols-2">
         {keywordList.map((item: Keyword, i: number) => (
           <Button key={i} data={item.data} />
         ))}

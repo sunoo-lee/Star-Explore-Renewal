@@ -9,6 +9,8 @@ interface KeywordStore {
   spacePosition: any;
   playerState: boolean;
   isSearchMode: boolean;
+  isMobile: boolean;
+  playerToggle: boolean;
   selectKeyword: (keyword: string) => void;
   deleteKeyword: (keyword: string) => void;
   setCurrentSong: (data: SongData) => void;
@@ -16,6 +18,8 @@ interface KeywordStore {
   selectResult: (title: string) => void;
   resetSpacePosition: () => void;
   setSearchMode: () => void;
+  setMobileState: (state: boolean) => void;
+  setPlayerToggle: (state: boolean) => void;
 }
 
 interface SongData {
@@ -40,6 +44,8 @@ const keywordStore = create<KeywordStore>((set) => ({
   spacePosition: {},
   playerState: false,
   isSearchMode: false,
+  isMobile: false,
+  playerToggle: false,
   selectKeyword: (keyword: string) => {
     set((state) => ({ keywordList: [...state.keywordList, keyword] }));
   },
@@ -95,6 +101,12 @@ const keywordStore = create<KeywordStore>((set) => ({
   },
   setSearchMode: () => {
     set((state) => ({ isSearchMode: !state.isSearchMode }));
+  },
+  setMobileState: (windowState) => {
+    set((state) => ({ isMobile: windowState }));
+  },
+  setPlayerToggle: (playerState) => {
+    set((state) => ({ playerToggle: playerState }));
   },
 }));
 

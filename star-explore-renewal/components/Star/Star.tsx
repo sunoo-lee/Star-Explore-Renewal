@@ -19,6 +19,7 @@ export default function Star({ keywords, info, songData }: any) {
   const keywordList = keywordStore((state) => state.keywordList);
   const setCurrentSong = keywordStore((state) => state.setCurrentSong);
   const selectResult = keywordStore((state) => state.selectResult);
+  const setPlayerToggle = keywordStore((state) => state.setPlayerToggle);
 
   const style = { top: `${songData.y}px`, left: `${songData.x}px` };
 
@@ -59,6 +60,7 @@ export default function Star({ keywords, info, songData }: any) {
     };
     setCurrentSong(data);
     selectResult(info.song_title);
+    setPlayerToggle(false);
   };
 
   const shouldShow = () => {

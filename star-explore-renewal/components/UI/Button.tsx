@@ -7,7 +7,7 @@ export default function Button({ data }: any) {
 
   const isSelected = keywordList.includes(data);
   const buttonClass =
-    "font-noto font-medium w-[104px] py-0.5 text-xl border rounded-3xl border-star-blue hover:bg-star-blue hover:text-space-black ";
+    "font-noto font-medium w-20  md:w-[104px] py-0.5 text-lg md:text-xl border rounded-3xl border-star-blue hover:bg-star-blue hover:text-space-black ";
   const selectTrue = buttonClass + "bg-star-blue text-space-black";
   const selectFalse = buttonClass + "bg-space-black text-star-blue";
 

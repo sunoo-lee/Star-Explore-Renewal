@@ -35,8 +35,8 @@ export default function Search() {
   }, [value]);
 
   return (
-    <div className="mt-10 mr-5 overflow-hidden text-white font-noto bg-star-blue rounded-2xl ">
-      <div className="flex items-center justify-between p-1 pl-4 pr-2 overflow-hidden border-2 bg-space-black border-star-blue rounded-2xl ">
+    <div className="relative w-[calc(100%-1rem)] mt-4 text-white md:mt-10 font-noto ">
+      <div className="relative z-50 flex items-center justify-between p-1 pl-4 pr-2 overflow-hidden border-2 bg-space-black border-star-blue rounded-2xl ">
         <input
           className="w-full min-w-0 text-xl font-medium outline-none text-star-blue bg-space-black"
           type="text"
@@ -48,12 +48,14 @@ export default function Search() {
         </div>
       </div>
       {searchResult.length < 270 && searchResult.length > 0 && (
-        <div className="my-2 overflow-y-scroll max-h-96 h-min break-keep">
-          <ul>
-            {searchResult.map((item, i) => (
-              <SearchItem key={i} title={item.song_title} />
-            ))}
-          </ul>
+        <div className="absolute top-0 z-40 w-full pt-12 pb-4 pr-2 rounded-2xl bg-star-blue/80 break-keep">
+          <div className="pl-2 overflow-y-scroll max-h-[30vh]">
+            <ul>
+              {searchResult.map((item, i) => (
+                <SearchItem key={i} title={item.song_title} />
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>

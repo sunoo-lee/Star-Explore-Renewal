@@ -23,7 +23,7 @@ export default function Result() {
   }, [keywordList]);
 
   return (
-    <div className="font-avant w-64 min-h-0 h-min bg-star-blue/60 rounded-3xl z-10">
+    <div className="absolute z-10 min-h-0 max-w-[50vw] md:relative font-avant w-52 lg:w-64 h-min bg-star-blue/60 rounded-3xl">
       <div
         className={
           (resultList.length === 270
@@ -42,7 +42,7 @@ export default function Result() {
         }
       >
         {resultList.length < 270 && resultList.length > 0 && (
-          <div className="max-h-96 overflow-y-scroll overflow-x-hidden my-4">
+          <div className="my-4 overflow-x-hidden overflow-y-scroll lg:max-h-[30vh] max-h-60">
             <ul className="mr-4 break-keep">
               {resultList.map((item, i) => (
                 <ResultItem key={i} title={item.song_title} />

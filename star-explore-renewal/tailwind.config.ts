@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      transitionTimingFunction: {
+        "nav-expo": "cubic-bezier(0.18, 0.89, 0.32, 1.28)",
+      },
+      screens: {
+        playerSize: "1440px",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -24,6 +30,7 @@ const config: Config = {
       },
     },
   },
+
   plugins: [],
 };
 export default config;
